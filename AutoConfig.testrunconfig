@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRunConfiguration name="Local Test Run" id="78b42ac9-39f5-41ee-a21d-26fe4a3fd409" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <Description>This is a default test run configuration for a local test run.</Description>
+  <Deployment>
+    <DeploymentItem filename="AutoConfig.Test\AutoConfig.Test.Environment1.config" />
+    <DeploymentItem filename="AutoConfig.Test\AutoConfig.Test.Encryption.config" />
+    <DeploymentItem filename="AutoConfig.Test\AutoConfig.Test.Environment2.config" />
+  </Deployment>
+  <TestTypeSpecific />
+</TestRunConfiguration>
