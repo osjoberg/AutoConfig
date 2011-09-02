@@ -14,7 +14,7 @@ namespace AutoConfig
         /// <summary>
         /// Culture used when parsing data in configuration files.
         /// </summary>
-        private static CultureInfo configurationCulture;
+        private static CultureInfo _configurationCulture;
 
         /// <summary>
         /// Initialize system with a custom configuration.
@@ -22,7 +22,7 @@ namespace AutoConfig
         /// <param name="configurationCulture"></param>
         public static void Initialize(CultureInfo configurationCulture)
         {
-            ConfigurationBase.configurationCulture = configurationCulture;
+            _configurationCulture = configurationCulture;
         }
 
         /// <summary>
@@ -47,7 +47,28 @@ namespace AutoConfig
         /// <returns>Instance of the specified type.</returns>
         private static TType ConvertFromString<TType>(string value)
         {
-            return (TType)Convert.ChangeType(value, typeof(TType), configurationCulture);
+            var type = typeof (TType);
+
+            if (type.IsEnum)
+                return (TType)ConvertFromStringToEnum(type, value);
+
+            return (TType)Convert.ChangeType(value, type, _configurationCulture);
+        }
+
+        private static object ConvertFromStringToEnum(Type type, string value)
+        {
+            int intValue;
+
+            foreach (var name in Enum.GetNames(type))
+            {
+                if (name.ToLowerInvariant() == value.ToLowerInvariant())
+                    return Enum.Parse(type, value, true);                
+            }
+
+            if (!int.TryParse(value, out intValue) || !Enum.IsDefined(type, intValue))
+                throw new FormatException("Value " + value + " is not defined in the enum of type " + type.Name);
+
+            return Enum.ToObject(type, intValue);
         }
 
         /// <summary>
@@ -83,7 +104,7 @@ namespace AutoConfig
         /// </summary>
         /// <param name="key">ConnectionStrings key.</param>
         /// <returns>Connection string information.</returns>
-        protected static ConnectionStringSettings GetConnectionStringSetting(string key)
+        private static ConnectionStringSettings GetConnectionStringSetting(string key)
         {
             return ConfigurationManager.ConnectionStrings[key];
         }

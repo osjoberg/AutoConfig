@@ -101,6 +101,81 @@ namespace AutoConfig.Test
         {
             Assert.AreEqual(-1, Configuration.TestMissingNullableDoubleThrowsException);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void TestEnumThrowsExceptionWhenValueIsEmptyString()
+        {
+            Assert.AreEqual(-1, Configuration.TestEnumThrowsExceptionWhenValueIsEmptyString);
+        }
+
+        [TestMethod]
+        public void TestEnumReturnsValue()
+        {
+            Assert.AreEqual(TestEnum.One, Configuration.TestEnumReturnsValue);
+        }
+
+        [TestMethod]
+        public void TestNullableEnumReturnsNullWhenValueIsEmptyString()
+        {
+            Assert.IsNull(Configuration.TestNullableEnumReturnsNullWhenValueIsEmptyString);
+        }
+
+        [TestMethod]
+        public void TestNullableEnumReturnsValue()
+        {
+            Assert.AreEqual(TestEnum.One, Configuration.TestNullableEnumReturnsValue);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void TestMissingEnumThrowsException()
+        {
+            Assert.AreEqual(-1, Configuration.TestMissingEnumThrowsException);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void TestMissingNullableEnumThrowsException()
+        {
+            Assert.AreEqual(-1, Configuration.TestMissingNullableEnumThrowsException);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void TestEnumOutOfRangeThrowsException()
+        {
+            Assert.AreEqual(-1, Configuration.TestEnumOutOfRange);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void TestEnumInvalidValueThrowsException()
+        {
+            Assert.AreEqual(-1, Configuration.TestEnumInvalidValue);
+        }
+
+        [TestMethod]
+        public void TestEnumReturnsValueWhenInt()
+        {
+            Assert.AreEqual(TestEnum.One, Configuration.TestEnumReturnsValueWhenInt);
+        }
+
+        [TestMethod]
+        public void TestEnumReturnsValueWhenCasesMismatch()
+        {
+            Assert.AreEqual(TestEnum.One, Configuration.TestEnumReturnsValueWhenCasesMismatch);
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void TestEnumUndefinedValueThrowsException()
+        {
+            Assert.AreEqual(-1, Configuration.TestEnumUndefinedValueThrowsException);
+        }
+
+
         
         [TestMethod]
         public void TestStringReturnsValueWhenValueIsEmptyString()

@@ -12,12 +12,12 @@ namespace AutoConfig.SystemConfiguration
         /// <summary>
         /// Internal config system reference.
         /// </summary>
-        private readonly IInternalConfigSystem internalConfigSystem;
+        private readonly IInternalConfigSystem _internalConfigSystem;
 
         /// <summary>
         /// Environment configuration reference.
         /// </summary>
-        private readonly Configuration environmentConfiguration;
+        private readonly Configuration _environmentConfiguration;
 
         /// <summary>
         /// Constructor.
@@ -26,8 +26,8 @@ namespace AutoConfig.SystemConfiguration
         /// <param name="environmentConfiguration">Environment configuration reference.</param>
         public AutoInternalConfigSystem(IInternalConfigSystem internalConfigSystem, Configuration environmentConfiguration)
         {
-            this.internalConfigSystem = internalConfigSystem;
-            this.environmentConfiguration = environmentConfiguration;
+            this._internalConfigSystem = internalConfigSystem;
+            this._environmentConfiguration = environmentConfiguration;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace AutoConfig.SystemConfiguration
         /// <param name="sectionName">Section name to refresh.</param>
         public void RefreshConfig(string sectionName)
         {
-            internalConfigSystem.RefreshConfig(sectionName);
+            _internalConfigSystem.RefreshConfig(sectionName);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace AutoConfig.SystemConfiguration
         /// </summary>
         public bool SupportsUserConfig
         {
-            get { return internalConfigSystem.SupportsUserConfig; }
+            get { return _internalConfigSystem.SupportsUserConfig; }
         }
 
         /// <summary>
@@ -59,9 +59,9 @@ namespace AutoConfig.SystemConfiguration
             if (configKey == "connectionStrings")
                 return BuildConnectionStrings();
             if (configKey == "system.codedom")
-                return internalConfigSystem.GetSection(configKey);
+                return _internalConfigSystem.GetSection(configKey);
 
-            return environmentConfiguration.GetSection(configKey) ?? internalConfigSystem.GetSection(configKey);
+            return _environmentConfiguration.GetSection(configKey) ?? _internalConfigSystem.GetSection(configKey);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace AutoConfig.SystemConfiguration
         /// <returns>Application settings collection.</returns>
         private NameValueCollection GetInternalAppSettings()
         {
-            return (NameValueCollection)internalConfigSystem.GetSection("appSettings");
+            return (NameValueCollection)_internalConfigSystem.GetSection("appSettings");
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace AutoConfig.SystemConfiguration
         /// <returns>Application settings collection.</returns>
         private KeyValueConfigurationCollection GetEnvironmentAppSettings()
         {
-            return environmentConfiguration.AppSettings.Settings;
+            return _environmentConfiguration.AppSettings.Settings;
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace AutoConfig.SystemConfiguration
         /// <returns>Internal connection string.</returns>
         private ConnectionStringSettingsCollection GetInternalConnectionStrings()
         {
-            var connectionStringsSection = internalConfigSystem.GetSection("connectionStrings");
+            var connectionStringsSection = _internalConfigSystem.GetSection("connectionStrings");
             return ((ConnectionStringsSection)connectionStringsSection).ConnectionStrings;
         }
 
@@ -112,7 +112,7 @@ namespace AutoConfig.SystemConfiguration
         /// <returns></returns>
         private ConnectionStringSettingsCollection GetEnvironmentConnectionStrings()
         {
-            return environmentConfiguration.ConnectionStrings.ConnectionStrings;
+            return _environmentConfiguration.ConnectionStrings.ConnectionStrings;
         }
         
         /// <summary>

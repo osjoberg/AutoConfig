@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Happy Path")]
 [assembly: AssemblyProduct("AutoConfig")]
-[assembly: AssemblyCopyright("Copyright © Happy Path 2010")]
+[assembly: AssemblyCopyright("Copyright © Happy Path 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,8 +34,8 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.0.0")]
-[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyVersion("0.2.0.0")]
+[assembly: AssemblyFileVersion("0.2.0.0")]
 [assembly: CLSCompliant(true)]
 
 [assembly: InternalsVisibleTo("AutoConfig.Test, PublicKey=002400000480000094000000060200000024000052534131000400000100010035ea272f52624e234289746b292c529c34b3135d587d655471db42e9f66eabb0eb67328a1487ad86a0b062e911204ded8f5a0d5f75cf42517bb30f6d55cde3fcc8b2b66792ee5a58067515fccc3200750985a255f30d2fb653905044a3b033e80a3f74ba7a4d4b400d6e00303a1cda6ad0a3fe9aa5ad02297a3324e18937bdc0")]

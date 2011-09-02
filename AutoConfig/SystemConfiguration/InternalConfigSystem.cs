@@ -13,12 +13,12 @@ namespace AutoConfig.SystemConfiguration
         /// <summary>
         /// Field information for the internal config system.
         /// </summary>
-        private static readonly FieldInfo field = GetInternalConfigSystemField();
+        private static readonly FieldInfo Field = GetInternalConfigSystemField();
 
         /// <summary>
         /// Reference to the original IInternalConfigSystem instance.
         /// </summary>
-        private static readonly IInternalConfigSystem original = GetInternalConfigSystem();
+        private static readonly IInternalConfigSystem Original = GetInternalConfigSystem();
 
         /// <summary>
         /// Get internal config system field.
@@ -35,7 +35,7 @@ namespace AutoConfig.SystemConfiguration
         /// <returns></returns>
         private static IInternalConfigSystem GetInternalConfigSystem()
         {
-            return (IInternalConfigSystem)field.GetValue(null);
+            return (IInternalConfigSystem)Field.GetValue(null);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace AutoConfig.SystemConfiguration
         /// <param name="internalConfigSystem">IInternalConfigSystem reference.</param>
         public static void Install(IInternalConfigSystem internalConfigSystem)
         {
-            field.SetValue(null, internalConfigSystem);
+            Field.SetValue(null, internalConfigSystem);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace AutoConfig.SystemConfiguration
         /// <returns></returns>
         public static IInternalConfigSystem GetOrginal()
         {
-            return original;
+            return Original;
         }
 
     }

@@ -1,12 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoConfig", "AutoConfig\AutoConfig.csproj", "{5CE24E9C-75B1-4171-B6AF-BE640EB6C4FA}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B64E4E0A-1CCB-4F88-A29F-FEE819889D0C}"
 	ProjectSection(SolutionItems) = preProject
 		AutoConfig.testrunconfig = AutoConfig.testrunconfig
+		AutoConfig1.vsmdi = AutoConfig1.vsmdi
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoConfig", "AutoConfig\AutoConfig.csproj", "{5CE24E9C-75B1-4171-B6AF-BE640EB6C4FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoConfig.Test", "AutoConfig.Test\AutoConfig.Test.csproj", "{525A8D73-677A-4354-BF2A-DDBAE209BE0D}"
 EndProject
@@ -16,7 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoConfig.Demo.Console.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoConfig.Demo.Web.Simple", "AutoConfig.Demo.Web.Simple\AutoConfig.Demo.Web.Simple.csproj", "{06F2EB6F-4C4B-4A88-8789-42FEBB528C89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoConfig.Demo.Mvc3", "AutoConfig.Demo.Mvc3\AutoConfig.Demo.Mvc3.csproj", "{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = AutoConfig1.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -76,6 +82,16 @@ Global
 		{06F2EB6F-4C4B-4A88-8789-42FEBB528C89}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{06F2EB6F-4C4B-4A88-8789-42FEBB528C89}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{06F2EB6F-4C4B-4A88-8789-42FEBB528C89}.Release|Win32.ActiveCfg = Release|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7A9F4171-0D48-4FDA-9ACB-B8C953E0E10F}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
