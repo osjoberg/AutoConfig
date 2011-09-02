@@ -14,12 +14,12 @@ namespace AutoConfig
         /// <summary>
         /// Lock used block parallell calls of the Initialize method.
         /// </summary>
-        private static readonly object initializeLock = new object();
+        private static readonly object InitializeLock = new object();
 
         /// <summary>
         /// Configuration section information.
         /// </summary>
-        private static readonly AutoConfigConfigurationSection configurationSection = AutoConfigConfigurationSection.GetSection();
+        private static readonly AutoConfigConfigurationSection ConfigurationSection = AutoConfigConfigurationSection.GetSection();
 
         /// <summary>
         /// Current environment information.
@@ -42,8 +42,8 @@ namespace AutoConfig
         {
             ArgumentValidator.IsNotNull("machineInfo", machineInfo);
 
-            if (configurationSection != null)
-                Initialize(EnvironmentInfo.AutoDetect(machineInfo, configurationSection.Environments));
+            if (ConfigurationSection != null)
+                Initialize(EnvironmentInfo.AutoDetect(machineInfo, ConfigurationSection.Environments));
             else
                 Initialize(EnvironmentInfo.DefaultEnvironment);
         }
@@ -56,7 +56,7 @@ namespace AutoConfig
         {
             ArgumentValidator.IsNotNullAndNotEmpty("environmentName", environmentName);
 
-            var environment = configurationSection.Environments[environmentName];
+            var environment = ConfigurationSection.Environments[environmentName];
             Initialize(EnvironmentInfo.FromEnvironmentConfigurationElement(environment));
         }
 
@@ -68,7 +68,7 @@ namespace AutoConfig
         {
             ArgumentValidator.IsNotNull("environmentInfo", environmentInfo);
 
-            lock (initializeLock)
+            lock (InitializeLock)
             {
                 // Get original implementation instance.
                 var original = InternalConfigSystem.GetOrginal();
@@ -84,6 +84,10 @@ namespace AutoConfig
                     // Get configuration.
                     var configuration = OpenMappedExeConfiguration(environmentInfo.File);
 
+                    // Make sure the environment specific configuration file exists.
+                    if (!configuration.HasFile)
+                        throw new FileNotFoundException("Could not load environment specific configuration file \"" + environmentInfo.File + "\"");
+
                     // Install auto internal config system.
                     var auto = new AutoInternalConfigSystem(original, configuration);
                     InternalConfigSystem.Install(auto);
@@ -91,8 +95,8 @@ namespace AutoConfig
 
                 Environment = environmentInfo;
 
-                if (configurationSection != null)
-                    ConfigurationBase.Initialize(configurationSection.Culture);
+                if (ConfigurationSection != null)
+                    ConfigurationBase.Initialize(ConfigurationSection.Culture);
             }
         }
 

@@ -125,7 +125,7 @@ namespace AutoConfig
         /// <param name="inputs">Inputs to match.</param>
         /// <param name="pattern">Pattern to match with.</param>
         /// <returns>Returns true if there is a match of if no pattern is set.</returns>
-        internal static bool IsMatch<TType>(IEnumerable<TType> inputs, string pattern)
+        private static bool IsMatch<TType>(IEnumerable<TType> inputs, string pattern)
         {
             if (pattern.Length == 0)
                 return true; 

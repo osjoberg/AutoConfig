@@ -30,7 +30,7 @@ namespace AutoConfig
                 IPAddress[] ipAdresses = Dns.GetHostEntry(ipProperties.HostName).AddressList;
 
                 // Get MAC addresses.
-                List<PhysicalAddress> physicalAddresses = new List<PhysicalAddress>();
+                var physicalAddresses = new List<PhysicalAddress>();
                 foreach (var networkInterface in NetworkInterface.GetAllNetworkInterfaces())
                 {
                     PhysicalAddress physicalAddress = networkInterface.GetPhysicalAddress();

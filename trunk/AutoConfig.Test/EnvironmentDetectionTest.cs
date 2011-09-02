@@ -38,7 +38,7 @@ namespace AutoConfig.Test
         [TestMethod]
         public void IsIdentifyingCorrectEnvironmentByMacAddress()
         {
-            AutoConfigManager.Initialize(new MachineInfo("UnknownMachine", "", null, new[] { new PhysicalAddress(new byte[] { 0, 1, 2, 3, 4, 5 }) } ));
+            AutoConfigManager.Initialize(new MachineInfo("UnknownMachine", "", null, new[] { new PhysicalAddress(new byte[] { 0, 1, 2, 3, 4, 5, 6, 7 }) } ));
             Assert.AreEqual("Environment5", AutoConfigManager.Environment.Name);
         }
     }

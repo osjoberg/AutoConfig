@@ -19,11 +19,24 @@ namespace AutoConfig.Test
         public static double TestMissingDoubleThrowsException { get { return GetAppSetting<double>("testMissingDoubleThrowsException"); } }
         public static double? TestMissingNullableDoubleThrowsException { get { return GetAppSettingOrNull<double>("testMissingNullableDoubleThrowsException"); } }
 
+        public static TestEnum TestEnumThrowsExceptionWhenValueIsEmptyString { get { return GetAppSetting<TestEnum>("testEnumThrowsExceptionWhenValueIsEmptyString"); } }
+        public static TestEnum TestEnumReturnsValue { get { return GetAppSetting<TestEnum>("testEnumReturnsValue"); } }
+        public static TestEnum? TestNullableEnumReturnsNullWhenValueIsEmptyString { get { return GetAppSettingOrNull<TestEnum>("testNullableEnumReturnsNullWhenValueIsEmptyString"); } }
+        public static TestEnum? TestNullableEnumReturnsValue { get { return GetAppSettingOrNull<TestEnum>("testNullableEnumReturnsValue"); } }
+        public static TestEnum TestMissingEnumThrowsException { get { return GetAppSetting<TestEnum>("testMissingEnumThrowsException"); } }
+        public static TestEnum? TestMissingNullableEnumThrowsException { get { return GetAppSettingOrNull<TestEnum>("testMissingNullableEnumThrowsException"); } }
+        public static TestEnum TestEnumInvalidValue { get { return GetAppSetting<TestEnum>("testEnumInvalidValue"); } }
+        public static TestEnum TestEnumOutOfRange { get { return GetAppSetting<TestEnum>("testEnumOutOfRange"); } }
+        public static TestEnum TestEnumReturnsValueWhenInt { get { return GetAppSetting<TestEnum>("testEnumReturnsValueWhenInt"); } }
+        public static TestEnum TestEnumUndefinedValueThrowsException { get { return GetAppSetting<TestEnum>("testEnumUndefinedValue"); } }
+        public static TestEnum TestEnumReturnsValueWhenCasesMismatch { get { return GetAppSetting<TestEnum>("testEnumRetusrnsValueWhenCasingMismatch"); } }
+
         public static string TestStringReturnsValueWhenValueIsEmptyString { get { return GetAppSetting<string>("testStringReturnsValueWhenValueIsEmptyString"); } }
         public static string TestStringReturnsValue { get { return GetAppSetting<string>("testStringReturnsValue"); } }
         public static string TestMissingStringThrowsException { get { return GetAppSetting<string>("testMissingStringThrowsException"); } }
 
         public static DbConnection TestConnectionString { get { return CreateConnection("testConnectionString"); } }
+
 
     }
 }
