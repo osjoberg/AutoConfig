@@ -44,24 +44,35 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettingsTest.cs" />
-    <Compile Include="Configuration.cs" />
-    <Compile Include="ConfigurationBaseTest.cs" />
-    <Compile Include="ConnectionStringsTest.cs" />
-    <Compile Include="CustomSectionTest.cs" />
-    <Compile Include="EncryptionTest.cs" />
+    <Compile Include="AutoConfigManagerTests\AppSettingsTest.cs" />
+    <Compile Include="TestConfigurationProvider.cs" />
+    <Compile Include="ConfigurationSerializerTests\CustomSectionTest.cs" />
+    <Compile Include="ConfigurationSerializerTests\DbConnectionTest.cs" />
+    <Compile Include="ConfigurationSerializerTests\NullableInt32Test.cs" />
+    <Compile Include="ConfigurationSerializerTests\EnumTest.cs" />
+    <Compile Include="ConfigurationSerializerTests\Int32Test.cs" />
+    <Compile Include="ConfigurationSerializerTests\DeserializeTest.cs" />
+    <Compile Include="ConfigurationSerializerTests\StringTest.cs" />
+    <Compile Include="ConfigurationSerializerTests\InstanceTest.cs" />
+    <Compile Include="ConfigurationSerializerTests\CultureTest.cs" />
+    <Compile Include="AutoConfigManagerTests\ConnectionStringsTest.cs" />
+    <Compile Include="AutoConfigManagerTests\CustomSectionTest.cs" />
+    <Compile Include="AutoConfigManagerTests\EncryptionTest.cs" />
+    <Compile Include="ExpectedExceptionMessageAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EnvironmentDetectionTest.cs" />
-    <Compile Include="TestConfigurationSection.cs" />
-    <Compile Include="TestEnum.cs" />
+    <Compile Include="AutoConfigManagerTests\EnvironmentDetectionTest.cs" />
+    <Compile Include="AutoConfigManagerTests\TestConfigurationSection.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="AutoConfig.Test.Environment1.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AutoConfig.Test.Environment2.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="AutoConfig.Test.Encryption.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -27,7 +27,7 @@ namespace AutoConfig
         private static void IsNotEmpty(string name, string value)
         {
             if (value.Length == 0)
-                throw new ArgumentException(Resources.ArgumentIsNotEmptyMessage, name);
+                throw new ArgumentException(ExceptionMessage.ArgumentIsNotEmptyMessage, name);
         }
 
         /// <summary>

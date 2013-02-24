@@ -46,17 +46,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgumentValidator.cs" />
+    <Compile Include="AutoConfigException.cs" />
     <Compile Include="ConfigSection\AutoConfigConfigurationSection.cs" />
     <Compile Include="AutoConfigManager.cs" />
-    <Compile Include="ConfigurationBase.cs" />
+    <Compile Include="ConfigurationProvider.cs" />
+    <Compile Include="ConfigurationSerializer.cs" />
+    <Compile Include="ConfigurationSerializerException.cs" />
+    <Compile Include="Converters\AppSettingConverter.cs" />
     <Compile Include="EnvironmentInfo.cs" />
     <Compile Include="ConfigSection\EnvironmentConfigurationElementCollection.cs" />
     <Compile Include="ConfigSection\EnvironmentConfigurationElement.cs" />
-    <Compile Include="Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Factory.cs" />
+    <Compile Include="ExceptionMessage.cs" />
+    <Compile Include="Converters\ConnectionStringConverter.cs" />
+    <Compile Include="IConfigurationProvider.cs" />
     <Compile Include="SystemConfiguration\InternalConfigSystem.cs" />
     <Compile Include="SystemConfiguration\AutoInternalConfigSystem.cs" />
     <Compile Include="MachineInfo.cs" />
@@ -64,12 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AutoConfig.snk" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

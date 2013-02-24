@@ -1,7 +1,7 @@
 ﻿namespace AutoConfig.Demo.Console.ConfigurationBase
 {
-    class Configuration : AutoConfig.ConfigurationBase
+    class Configuration
     {
-        public static decimal TestSetting { get { return GetAppSetting<decimal>("TestSetting"); } }
+		public static decimal TestSetting { get; private set; }
     }
 }

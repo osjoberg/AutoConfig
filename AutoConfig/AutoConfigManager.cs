@@ -86,7 +86,7 @@ namespace AutoConfig
 
                     // Make sure the environment specific configuration file exists.
                     if (!configuration.HasFile)
-                        throw new FileNotFoundException("Could not load environment specific configuration file \"" + environmentInfo.File + "\"");
+                        throw new AutoConfigException(ExceptionMessage.CouldNotLoadEnvironmentSpecificConfigurationFile, environmentInfo.File);
 
                     // Install auto internal config system.
                     var auto = new AutoInternalConfigSystem(original, configuration);
@@ -94,9 +94,6 @@ namespace AutoConfig
                 }
 
                 Environment = environmentInfo;
-
-                if (ConfigurationSection != null)
-                    ConfigurationBase.Initialize(ConfigurationSection.Culture);
             }
         }
 
