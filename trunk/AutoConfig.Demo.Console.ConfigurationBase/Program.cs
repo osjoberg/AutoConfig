@@ -6,7 +6,7 @@ namespace AutoConfig.Demo.Console.ConfigurationBase
     {
         static void Main(string[] args)
         {
-            Configuration.Initialize(new CultureInfo("en-us"));
+			ConfigurationSerializer.Deserialize<Configuration>();
 
             System.Console.WriteLine(@"The application setting TestSetting is set to ""{0}"".", Configuration.TestSetting);
 

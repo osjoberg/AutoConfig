@@ -101,7 +101,7 @@ namespace AutoConfig
                 // Match environment filters with machine properties.
                 if (!IsMatch(new[] { machineInformation.Host }, environment.Host))
                     continue;
-                if (!IsMatch(new[] { machineInformation.Domain }, environment.Domain))
+                if (!IsMatch(new[] { machineInformation.Domain ?? string.Empty }, environment.Domain))
                     continue;
                 if (!IsMatch(machineInformation.IPAdresses, environment.IPAddress))
                     continue;
@@ -110,7 +110,7 @@ namespace AutoConfig
 
                 // Make sure there are not more than one matching environment.
                 if (determinedEnvironment != null)
-                    throw new ConfigurationErrorsException(Resources.OnlyOneMatchingEnvironmentMessage);
+                    throw new AutoConfigException(ExceptionMessage.OnlyOneMatchingEnvironmentMessage);
 
                 determinedEnvironment = environment;
             }
